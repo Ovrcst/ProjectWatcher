@@ -64,14 +64,15 @@ public class ProjectWatcher : IAsyncDisposable
 
         //var lastRefresh = DateTime.UtcNow;
         //bypass appsettings.json refresh interval for now
-        var randomRefreshSeconds = Random.Shared.Next(180, 301);
+        //var randomRefreshSeconds = Random.Shared.Next(180, 301);
         //var randomRefreshSeconds = Random.Shared.Next(6, 7);
-        var nextRefresh = DateTime.Now.AddSeconds(randomRefreshSeconds);
+        //var nextRefresh = DateTime.Now.AddSeconds(randomRefreshSeconds);
 
         while (true)
         {
+            var randomRefreshSeconds = Random.Shared.Next(180, 301);
+            var nextRefresh = DateTime.Now.AddSeconds(randomRefreshSeconds);
 
-            
 
             try
             {
@@ -158,7 +159,7 @@ public class ProjectWatcher : IAsyncDisposable
         // ":r0:-tab-projects" because that looks
         // like a generated React ID.
         var projectsTab = _page.Locator(
-            "[role='tab'][id=':r0:-tab-projects']",
+            "[role='tab'][id='_r_0_-tab-projects']",
             new PageLocatorOptions
             {
                 HasTextString = "Projects"
